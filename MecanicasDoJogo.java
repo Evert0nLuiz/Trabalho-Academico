@@ -5,8 +5,8 @@ public class MecanicasDoJogo
     int furtividade;
     int forca;
     int inteligencia;
-    int maximoDeItens = 3;
-    String mochila [] = new String [maximoDeItens];
+    int maximoDeEspaçosNaMochila = 3;
+    String mochila [] = new String [maximoDeEspaçosNaMochila];
 
     public void setClasseSoldado()
     {
@@ -59,8 +59,13 @@ public class MecanicasDoJogo
 
     return mochila[indexNaLista];
     
-    
-
+   }
+   public void mostrarMochila()
+   {
+    for (int i = 0; i < mochila.length; i++)
+    {
+        System.out.println("Sua mochila" + i + "Tem" + mochila[i]);
+    }
    }
 
 
