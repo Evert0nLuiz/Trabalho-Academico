@@ -20,9 +20,12 @@ public class Main extends MecanicasDoJogo{
 
         System.out.println("Sua vida atual: " + vida + "\nForça: " + forca + " \nInteligência: " + inteligencia + "\nFurtividade: " + furtividade);
         cientista.adicionarItensNaMochila("Chave");
-        cientista.adicionarItensNaMochila("Arma");
+        
         cientista.mostrarMochila();
         
+        cientista.adicionarItensNaMochila("Arma");
+        
+        cientista.mostrarMochila();
        
       
     }

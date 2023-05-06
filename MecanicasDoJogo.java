@@ -8,6 +8,7 @@ public class MecanicasDoJogo
     int maximoDeEspaçosNaMochila = 3;
     String mochila [] = new String [maximoDeEspaçosNaMochila];
 
+    //escolha de classes
     public void setClasseSoldado()
     {
         vida = 100;
@@ -17,9 +18,25 @@ public class MecanicasDoJogo
 
 
     }
+    public void setClasseCientista()
+    {
+        vida = 100;
+        inteligencia = 100;
+        forca = 100;
+        furtividade = 100;
+
+    }
+    public void setClassePrisioneiro()
+    {
+        vida = 100;
+        inteligencia = 100;
+        forca = 100;
+        furtividade = 100;
+    }
+
+    //pegar os Stats
     public int getVida(){
         return vida;
-
     }
     public  int getInteligencia(){
         return inteligencia;
@@ -33,6 +50,7 @@ public class MecanicasDoJogo
 
 
 
+    //mecanica de dano
 
     public int damage(int dano){
         vida = vida - dano;
@@ -60,11 +78,24 @@ public class MecanicasDoJogo
     return mochila[indexNaLista];
     
    }
+
    public void mostrarMochila()
    {
+    String estadoDaMochila = "Compartimento vazio";
     for (int i = 0; i < mochila.length; i++)
     {
-        System.out.println("Sua mochila" + i + "Tem" + mochila[i]);
+        if (i == 0 && mochila[i] == null)
+        {
+            System.out.println("Sua mochila está vazia");
+            break;
+        }
+        if (i > 0 && mochila[i] == null)
+        {
+            System.out.println(estadoDaMochila);
+            break;
+        }
+        System.out.println("O compartimento: " + i + " Tem: " + mochila[i]);
+        
     }
    }
 
