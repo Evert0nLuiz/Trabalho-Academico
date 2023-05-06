@@ -17,8 +17,8 @@ public class Main extends MecanicasDoJogo{
 
         System.out.println("Sua vida atual: " + vida + "\nForça: " + forca + " \nInteligência: " + inteligencia + "\nFurtividade: " + furtividade);
         
-       
-
+       System.out.println(cientista.adicionarItensNaMochila("chave"));
+      
     }
 }
 

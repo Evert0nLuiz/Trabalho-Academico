@@ -5,7 +5,8 @@ public class MecanicasDoJogo
     int furtividade;
     int forca;
     int inteligencia;
-    String mochila [];
+    int maximoDeItens = 3;
+    String mochila [] = new String [maximoDeItens];
 
     public void setClasseSoldado()
     {
@@ -45,11 +46,18 @@ public class MecanicasDoJogo
 
     for(;;)
     {
-
+        if (mochila[indexNaLista] == null)
+        {
+            mochila[indexNaLista] = item;
+            break;
+        }else
+        {
+            indexNaLista += 1;
+        }
     }
 
 
-    return mochila[index];
+    return mochila[indexNaLista];
     
     
 
