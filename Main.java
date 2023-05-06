@@ -2,7 +2,7 @@ public class Main extends MecanicasDoJogo{
 
     /**
      * Teste de metodos da classe mecanica
-     * @param args
+     * 
      */
     public static void main(String[] args) {
         MecanicasDoJogo cientista = new MecanicasDoJogo();
@@ -24,7 +24,7 @@ public class Main extends MecanicasDoJogo{
         cientista.mostrarMochila();
         
         cientista.adicionarItensNaMochila("Arma");
-        
+
         cientista.mostrarMochila();
        
       
