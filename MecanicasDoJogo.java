@@ -1,10 +1,12 @@
+
 public class MecanicasDoJogo 
 {
     int vida;
     int furtividade;
     int forca;
     int inteligencia;
-    String [] mochila;
+    String mochila [];
+
     public void setClasseSoldado()
     {
         vida = 100;
@@ -37,7 +39,21 @@ public class MecanicasDoJogo
         return vida;
     }
  
-   
+   public String adicionarItensNaMochila(String item)
+   {
+    int indexNaLista = 0;
+
+    for(;;)
+    {
+
+    }
+
+
+    return mochila[index];
+    
+    
+
+   }
 
 
 }

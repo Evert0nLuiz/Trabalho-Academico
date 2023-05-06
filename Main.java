@@ -6,7 +6,7 @@ public class Main extends MecanicasDoJogo{
         int inteligencia;
         int furtividade;
         int forca;
-
+        String mochila[] = new String [2];
         cientista.setClasseSoldado();
 
         vida = cientista.getVida();
@@ -14,10 +14,11 @@ public class Main extends MecanicasDoJogo{
         inteligencia = cientista.getInteligencia();
         furtividade = cientista.getFurtividade();
 
-        vida = cientista.heal(22);
-
 
         System.out.println("Sua vida atual: " + vida + "\nForça: " + forca + " \nInteligência: " + inteligencia + "\nFurtividade: " + furtividade);
+        
+       
+
     }
 }
 
