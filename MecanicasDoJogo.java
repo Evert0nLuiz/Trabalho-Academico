@@ -12,26 +12,23 @@ public class MecanicasDoJogo
     public void setClasseSoldado()
     {
         vida = 100;
-        inteligencia = 100;
-        forca = 100;
-        furtividade = 100;
-
-
+        inteligencia = 3;
+        forca = 9;
+        furtividade = 5;
     }
     public void setClasseCientista()
     {
         vida = 100;
-        inteligencia = 100;
-        forca = 100;
-        furtividade = 100;
-
+        inteligencia = 10;
+        forca = 3;
+        furtividade = 5;
     }
     public void setClassePrisioneiro()
     {
         vida = 100;
-        inteligencia = 100;
-        forca = 100;
-        furtividade = 100;
+        inteligencia = 5;
+        forca = 3;
+        furtividade = 9;
     }
 
     //pegar os Stats
@@ -98,6 +95,7 @@ public class MecanicasDoJogo
         
     }
    }
+
 
 
 }
