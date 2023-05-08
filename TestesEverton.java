@@ -1,4 +1,4 @@
-public class Main extends MecanicasDoJogo{
+public class TestesEverton extends MecanicasDoJogo{
 
     /**
      * Teste de metodos da classe mecanica
