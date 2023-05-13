@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class MecanicasDoJogo 
 {
@@ -7,31 +8,44 @@ public class MecanicasDoJogo
     int inteligencia;
     int maximoDeEspaçosNaMochila = 3;
     String mochila [] = new String [maximoDeEspaçosNaMochila];
+    int especialUsos = 0;
+    int vidaZumbi = 0;
+    int forçaZumbi;
 
     //escolha de classes
     public void setClasseSoldado()
     {
         vida = 100;
-        inteligencia = 100;
-        forca = 100;
-        furtividade = 100;
-
-
+        inteligencia = 3;
+        forca = 9;
+        furtividade = 5;
     }
     public void setClasseCientista()
     {
         vida = 100;
-        inteligencia = 100;
-        forca = 100;
-        furtividade = 100;
-
+        inteligencia = 10;
+        forca = 3;
+        furtividade = 5;
     }
     public void setClassePrisioneiro()
     {
         vida = 100;
-        inteligencia = 100;
-        forca = 100;
-        furtividade = 100;
+        inteligencia = 5;
+        forca = 3;
+        furtividade = 9;
+    }
+
+    
+    public void criaZumbi()
+    {
+        vidaZumbi = 60;
+        forçaZumbi = 2;        
+
+
+    }
+    public int getForcaZumbi()
+    {
+        return forçaZumbi;
     }
 
     //pegar os Stats
@@ -50,19 +64,48 @@ public class MecanicasDoJogo
 
 
 
-    //mecanica de dano
+
+    //mecanica de dano para batalha
+
 
     public int damage(int dano){
         vida = vida - dano;
 
         return vida;
     }
- 
+   public int getDanoDoOponente()
+   {
+    Random rnd = new Random();
+    forçaZumbi = getForcaZumbi()*10;
+
+    int danoMob;
+
+    danoMob = rnd.nextInt((forçaZumbi)); 
+    return danoMob;
+   }
+
+
+    public int getEspecial()
+    {
+        if (especialUsos <= 0)
+        {
+            return especialUsos;
+        }else{
+            especialUsos -=1;
+            return especialUsos;
+        }
+        
+    }
+    
+
+
+
+
    public String adicionarItensNaMochila(String item)
    {
     int indexNaLista = 0;
 
-    for(;;)
+    for()
     {
         if (mochila[indexNaLista] == null)
         {
@@ -98,6 +141,9 @@ public class MecanicasDoJogo
         
     }
    }
+
+
+
 
 
 }
