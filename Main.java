@@ -13,18 +13,16 @@ public class Main extends MecanicasDoJogo {
 
         JOptionPane.showMessageDialog(
                 null,
-                "INTRODUÇÃO DA HISTÓRIA",
+                "Em 7 de Dezembro de 1941, houve o ataque japonês a base naval americana de Pearl Harbor, em Honolulu, no território do Havaí\nVocê é um sobrevivente a este ataque e esta em busca de sair da ilha, que devido as bombas, os mortos estavam voltando a vida!\nVocê será capaz de enfrentar esta jornada perigosa e desafiante?\nBoa Sorte Guerreiro!!! ",
                 titulo,
                 JOptionPane.INFORMATION_MESSAGE);
 
         String nome = ""; // variável do nome
-        
         nome = JOptionPane.showInputDialog("Qual seu nome?");
-        while(nome.equals(""))
-        {
-            nome = JOptionPane.showInputDialog("Esse não é um nome válido,tente novamente!");
-        }
-    
+        if (nome.equals("")){
+         while (nome.equals("")) {
+            nome = JOptionPane.showInputDialog("Qual seu nome?");
+        }}
 
 
         JOptionPane.showMessageDialog(
@@ -48,7 +46,7 @@ public class Main extends MecanicasDoJogo {
 
             resposta = JOptionPane.showOptionDialog(
                     null,
-                    "Escolha sua classe abaixo, ao clicar você poderá ver os status da sua classe e voltar para esse menu, quando relizar sua escolha, clique SIM na classe desejada",
+                    "Escolha sua classe abaixo, ao clicar você poderá ver os status da sua classe e voltar para esse menu.",
                     titulo,
                     JOptionPane.YES_NO_CANCEL_OPTION,
                     JOptionPane.QUESTION_MESSAGE,
@@ -104,7 +102,7 @@ public class Main extends MecanicasDoJogo {
 
         resposta = JOptionPane.showOptionDialog(
                 null,
-                "Você acabou de acordar e se encontra de baixo dos escombros",
+                "Você acabou de acordar e se encontra de baixo dos escombros, o que deseja fazer?",
                 titulo,
                 JOptionPane.DEFAULT_OPTION,
                 JOptionPane.WARNING_MESSAGE,
@@ -215,7 +213,7 @@ public class Main extends MecanicasDoJogo {
 
     JOptionPane.showMessageDialog(
         null,
-        "Incrivelmente você conseguiu chegar até aqui, com isso, ao sair da sala, você se depara 3 corredores (no caso são corredores de corredor, e não maratonistas kkk)",
+        "Incrivelmente você conseguiu chegar até aqui, com isso, ao sair da sala, você se depara 2 corredores (no caso são corredores de corredor, e não maratonistas kkk)",
         titulo, 
         JOptionPane.INFORMATION_MESSAGE);
         
@@ -277,7 +275,7 @@ public class Main extends MecanicasDoJogo {
             System.exit(0);
         }
 
-        JOptionPane.showMessageDialog(null, "CAIS", titulo, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Ao seguir pelo caminho do cais, você se depara com um barco, incrivelmente inteiro, ainda mais com o ataque\nMas quando a esmola é muito grande, o santo desconfia...\nVocê se depara com um guarda fazendo a vigia do barco, mas seu foco é sair da ilha, então vai a batalha", titulo, JOptionPane.PLAIN_MESSAGE);
 
         // inicio batalha
 
@@ -285,11 +283,11 @@ public class Main extends MecanicasDoJogo {
         int vitoriaBatalha = 1;
 
         if (vitoriaBatalha == 0){
-            JOptionPane.showMessageDialog(null, "PERDEU", titulo, JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Você chegou tão perto, infelizmente, o guarda era mais forte e conseguiu te derrotar\nVocê Morreu!", titulo, JOptionPane.WARNING_MESSAGE);
             System.exit(1);
         }
 
-        JOptionPane.showMessageDialog(null, "PARABENS GANHOU FDS", titulo, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Você conseguiu!!!\nParabéns guerreiro, depois dessa árdua batalha para escapar dessa ilha infernal, chegou a hora de descansar!", titulo, JOptionPane.INFORMATION_MESSAGE);
 
     }
 
