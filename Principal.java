@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Introducao extends MecanicasDoJogo {
+public class Principal extends MecanicasDoJogo {
     public static void main(String[] args) {
 
         String titulo = "RPG";
