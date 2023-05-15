@@ -1,4 +1,4 @@
-public class Main extends MecanicasDoJogo{
+public class Testes extends MecanicasDoJogo{
 
     /**
      * Teste de metodos da classe mecanica
