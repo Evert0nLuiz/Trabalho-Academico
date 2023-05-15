@@ -1,3 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.rpgaliveindead;
+
+/**
+ *
+ * @author everton.lcsousa
+ */
 public class Testes extends MecanicasDoJogo{
 
     /**
@@ -18,7 +28,7 @@ public class Testes extends MecanicasDoJogo{
         furtividade = cientista.getFurtividade();
         
 
-        System.out.println("Sua vida atual: " + vida + "\nForça: " + forca + " \nInteligência: " + inteligencia + "\nFurtividade: " + furtividade);
+        System.out.println("Sua vida atual: " + vida + "\nForÃ§a: " + forca + " \nInteligÃªncia: " + inteligencia + "\nFurtividade: " + furtividade);
         cientista.adicionarItensNaMochila("Chave");
         
         cientista.mostrarMochila();

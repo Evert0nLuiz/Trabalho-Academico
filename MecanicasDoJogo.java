@@ -1,3 +1,12 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.rpgaliveindead;
+/**
+ *
+ * @author everton.lcsousa
+ */
 import java.util.Random;
 
 public class MecanicasDoJogo 
@@ -6,11 +15,11 @@ public class MecanicasDoJogo
     int furtividade;
     int forca;
     int inteligencia;
-    int maximoDeEspaçosNaMochila = 3;
-    String mochila [] = new String [maximoDeEspaçosNaMochila];
+    int maximoDeEspacosNaMochila = 3;
+    String mochila [] = new String [maximoDeEspacosNaMochila];
     int especialUsos = 0;
     int vidaZumbi = 0;
-    int forçaZumbi;
+    int forcaZumbi;
 
     //escolha de classes
     public void setClasseSoldado()
@@ -39,13 +48,13 @@ public class MecanicasDoJogo
     public void criaZumbi()
     {
         vidaZumbi = 60;
-        forçaZumbi = 2;        
+        forcaZumbi = 2;        
 
 
     }
     public int getForcaZumbi()
     {
-        return forçaZumbi;
+        return forcaZumbi;
     }
 
     //pegar os Stats
@@ -76,11 +85,11 @@ public class MecanicasDoJogo
    public int getDanoDoOponente()
    {
     Random rnd = new Random();
-    forçaZumbi = getForcaZumbi()*10;
+    forcaZumbi = getForcaZumbi()*10;
 
     int danoMob;
 
-    danoMob = rnd.nextInt((forçaZumbi)); 
+    danoMob = rnd.nextInt((forcaZumbi)); 
     return danoMob;
    }
 
@@ -105,7 +114,7 @@ public class MecanicasDoJogo
    {
     int indexNaLista = 0;
 
-    for()
+    for(;;)
     {
         if (mochila[indexNaLista] == null)
         {
@@ -129,7 +138,7 @@ public class MecanicasDoJogo
     {
         if (i == 0 && mochila[i] == null)
         {
-            System.out.println("Sua mochila está vazia");
+            System.out.println("Sua mochila estÃ¡ vazia");
             break;
         }
         if (i > 0 && mochila[i] == null)

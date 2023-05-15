@@ -1,3 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.mycompany.rpgaliveindead;
+
+/**
+ *
+ * @author everton.lcsousa
+ */
 import javax.swing.JOptionPane;
 
 public class Main extends MecanicasDoJogo {
@@ -21,7 +31,7 @@ public class Main extends MecanicasDoJogo {
         nome = JOptionPane.showInputDialog("Qual seu nome?");
         if (nome.equals("")){
          while (nome.equals("")) {
-            nome = JOptionPane.showInputDialog("Qual seu nome?");
+            nome = JOptionPane.showInputDialog("Esse nome não é valido, tente novamente");
         }}
 
 
@@ -328,3 +338,4 @@ public class Main extends MecanicasDoJogo {
 
 
 }
+
