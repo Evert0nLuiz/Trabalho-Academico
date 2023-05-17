@@ -10,9 +10,6 @@ package com.trabalhoPi.rpgaliveindead;
  * @author everton.lcsousa
  */
 public class Testes extends MecanicasDoJogo{
-========
-public class TestesEverton extends MecanicasDoJogo{
->>>>>>>> dev:TestesEverton.java
 
     /**
      * Teste de metodos da classe mecanica
