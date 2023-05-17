@@ -10,9 +10,9 @@
   A história do RPG Alive in Dead foi feita em suma parte ápos o ataque a Pearl Harbor em 1941 contudo no jogo esse ataque trouxe algumas consequências como zumbis e cabe a você (jogador) cosneguir sair vivo dessa ilha.
 
 ## Créditos
-Everton Luiz da Cruz Sousa
-Gabriel Freitas de Souza
-Roger
+Everton Luiz da Cruz Sousa<br>
+Gabriel Freitas de Souza<br>
+Roger<br>
 Nickolas
 
 ## Motivação
