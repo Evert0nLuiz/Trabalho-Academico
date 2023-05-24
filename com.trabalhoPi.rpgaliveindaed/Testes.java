@@ -46,6 +46,7 @@ public class Testes extends MecanicasDoJogo {
         cientista.adicionarItensNaMochila("Arma");
 
         cientista.mostrarMochila();
+        
         battle.batalha(vida, especialUsos, vidaInimigo);
        
       
