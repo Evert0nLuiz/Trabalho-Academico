@@ -1,4 +1,4 @@
-package com.mycompany.rpgaliveindead;
+package com.trabalhopi.rpgaliveindead;
 
 import javax.swing.*;
 import java.util.Scanner;
