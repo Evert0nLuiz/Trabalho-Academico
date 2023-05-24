@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.trabalhoPi.rpgaliveindead;
+package com.trabalhopi.rpgaliveindead;
 /**
  *
  * @author everton.lcsousa
@@ -18,7 +18,7 @@ public class MecanicasDoJogo
     int maximoDeEspacosNaMochila = 3;
     String mochila [] = new String [maximoDeEspacosNaMochila];
     int especialUsos = 0;
-    int vidaZumbi = 0;
+    int vidaZumbi;
     int forcaZumbi;
 
     //escolha de classes
@@ -45,10 +45,10 @@ public class MecanicasDoJogo
     }
 
     
-    public void criaZumbi()
+    public int criaZumbi()
     {
         vidaZumbi = 60;
-        forcaZumbi = 2;        
+       return vidaZumbi;     
 
 
     }
