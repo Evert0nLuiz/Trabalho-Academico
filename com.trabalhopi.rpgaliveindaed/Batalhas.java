@@ -20,29 +20,57 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
         return escolhaJogador;
     }
 
-public void batalha(int vidaJogador, int especialUsos, int vidaInimigo){
+public int batalha(int vidaJogador, int especialUsos,,int forcaJogador, int vidaInimigo){
     Scanner input = new Scanner(System.in);
-    
+    Random rnd = new Random();
+
+    forcaJogador = rnd.nextInt(forca) + 1;
+    int escolhaInimigo;
     int escolhaOqFazerJogador;
 
     while(vidaJogador > 0 && vidaInimigo > 0)
     {
         escolhaOqFazerJogador = imprimeHP(vidaJogador, especialUsos, vidaInimigo);
+        if(vidaJogador < 0)
+        {
         
-        switch(escolhaOqFazerJogador){
-            case 0:
-            damage(3);
-            break;
-            case 1:
-            break;
-            case 2:
-            break;
-            default:
-            break;
+         switch(escolhaOqFazerJogador){
+                case 0:
+                    //ataque normal            
+                    vidaInimigo -= forcaJogador;
+                break;
+                case 1:
+                    //ataque especial
+                    vidaInimigo -= especial;
+                    especial -= 1;
+                break;
+                case 2:
+                    if (furtividade >= 8)
+                    {
+                        continue;
+                    }
+                break;
+            
         }
-        break;
-        
     }
+         if(vidaInimigo > 0)
+        {
+            escolhaInimigo = rnd.nextInt(1);
+            switch(escolhaInimigo){
+                case 0:
+                    //ataque normal            
+                    vidaJogador -= rnd.nextInt(forcaZumbi);
+                break;
+                 case 1:
+                //ataque especial
+                    vidaJogador -= rnd.nextInt(forcaZumbi)*10;
+                break;
+           
+    }
+    
+
+    }
+    return vidaJogador
 
 
 
