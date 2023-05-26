@@ -18,7 +18,7 @@ public class MecanicasDoJogo
     int maximoDeEspacosNaMochila = 3;
     String mochila [] = new String [maximoDeEspacosNaMochila];
     int especialUsos = 0;
-    int vidaZumbi = 0;
+    int vidaZumbi;
     int forcaZumbi;
 
     //escolha de classes
@@ -45,17 +45,19 @@ public class MecanicasDoJogo
     }
 
     
-    public void criaZumbi()
+    public int criaZumbi()
     {
         vidaZumbi = 60;
-        forcaZumbi = 2;        
+       return vidaZumbi;     
 
 
     }
     public int getForcaZumbi()
     {
+        forcaZumbi = 10;
         return forcaZumbi;
     }
+
 
     //pegar os Stats
     public int getVida(){
@@ -71,40 +73,12 @@ public class MecanicasDoJogo
         return forca;     
     }
 
-
-
-
-    //mecanica de dano para batalha
-
-
-    public int damage(int dano){
-        vida = vida - dano;
-
-        return vida;
-    }
-   public int getDanoDoOponente()
-   {
-    Random rnd = new Random();
-    forcaZumbi = getForcaZumbi()*10;
-
-    int danoMob;
-
-    danoMob = rnd.nextInt((forcaZumbi)); 
-    return danoMob;
-   }
-
-
     public int getEspecial()
     {
-        if (especialUsos <= 0)
-        {
-            return especialUsos;
-        }else{
-            especialUsos -=1;
-            return especialUsos;
-        }
-        
+      especialUsos = 2;
+      return especialUsos;
     }
+   
     
 
 
