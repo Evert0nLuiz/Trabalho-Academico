@@ -28,6 +28,7 @@ public class Testes extends MecanicasDoJogo {
         int forca;
         int especialUsos;
         int vidaInimigo;
+        int forcaMob = cientista.getForcaZumbi();
         cientista.setClasseSoldado();
 
         vida = cientista.getVida();
@@ -47,8 +48,9 @@ public class Testes extends MecanicasDoJogo {
 
         cientista.mostrarMochila();
         
-        battle.batalha(vida, especialUsos, vidaInimigo);
+        battle.batalha(vida, especialUsos, forca, furtividade, vidaInimigo, forcaMob);
        
+        
       
     }
 }

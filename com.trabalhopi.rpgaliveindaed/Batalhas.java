@@ -1,5 +1,5 @@
 package com.trabalhopi.rpgaliveindead;
-
+import java.util.Random;
 import javax.swing.*;
 import java.util.Scanner;
 
@@ -11,69 +11,146 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
 
 
         escolhaJogador = JOptionPane.showOptionDialog(null, "Hp: " + vidaJogador + "             Hp Inimigo: " + vidaInimigo + "\nEspecial: "+ especialUsos
-        ,"Teste"
+        ,"O que vocÊ irá fazer para derrota-lo"
         ,JOptionPane.YES_NO_CANCEL_OPTION
-        , JOptionPane.WARNING_MESSAGE
+        , JOptionPane.QUESTION_MESSAGE
         ,null
         ,acoesJogador
         ,0);
         return escolhaJogador;
     }
 
-public int batalha(int vidaJogador, int especialUsos,,int forcaJogador, int vidaInimigo){
-    Scanner input = new Scanner(System.in);
+public int batalha(int vidaJogador, int especialUsos,int forcaJogador, int statusCoringa, int vidaInimigo, int forcaMob){
     Random rnd = new Random();
-
-    forcaJogador = rnd.nextInt(forca) + 1;
+    int vidaMob = vidaInimigo;
     int escolhaInimigo;
     int escolhaOqFazerJogador;
+    int danoJogador;
+    //multiplicador de dano, dependendo da classe
+    if(forcaJogador > 6){
+         danoJogador = forcaJogador * 3;
+    } else {
+        danoJogador = forcaJogador * 7;
+    }
+    
+    int danoMob = forcaMob * 2;
+    int mediaDeTeste = 8;
+    boolean fugir = false;
 
-    while(vidaJogador > 0 && vidaInimigo > 0)
+    while(vidaJogador > 0 && vidaMob > 0 && fugir == false)
     {
-        escolhaOqFazerJogador = imprimeHP(vidaJogador, especialUsos, vidaInimigo);
-        if(vidaJogador < 0)
+        System.out.println(forcaZumbi);
+        escolhaOqFazerJogador = imprimeHP(vidaJogador, especialUsos, vidaMob);
+
+        if(vidaJogador > 0)
         {
+        if(escolhaOqFazerJogador == -1){
+            break;
+        }
         
          switch(escolhaOqFazerJogador){
                 case 0:
                     //ataque normal            
-                    vidaInimigo -= forcaJogador;
+                int dano = rnd.nextInt(danoJogador)+1;
+
+                    JOptionPane.showMessageDialog(
+                null,
+                "Voce deu: " + dano + " de dano" ,
+                null,
+                JOptionPane.INFORMATION_MESSAGE);
+                vidaMob -= dano;
+                    
                 break;
                 case 1:
+                if (especialUsos == 0)
+                {
+                    JOptionPane.showMessageDialog(
+                null,
+                "Você não tem mais especiais, você esqueceu como usar essa magica antiga, você tropeça e cai, você ficou vuneravel e sofreu um ataque, mesmo sem ter atacado" ,
+                null,
+                JOptionPane.INFORMATION_MESSAGE);
+                }
+                if(especialUsos > 0){
                     //ataque especial
-                    vidaInimigo -= especial;
-                    especial -= 1;
+
+                int danoEspecial = danoJogador;
+
+                    JOptionPane.showMessageDialog(
+                null,
+                "Voce deu: " + danoEspecial + " de dano" ,
+                null,
+                JOptionPane.INFORMATION_MESSAGE);
+                    vidaMob -= danoEspecial;
+                    especialUsos -= 1;
                 break;
+                }
                 case 2:
-                    if (furtividade >= 8)
+                    if (statusCoringa >= mediaDeTeste)
                     {
-                        continue;
-                    }
+                        JOptionPane.showMessageDialog(
+                null,
+                "Você tem furtividade suficiente e consegue fugir" ,
+                null,
+                JOptionPane.INFORMATION_MESSAGE);
+                    fugir = true;
+                        break;
+                        }else{
+                            JOptionPane.showMessageDialog(
+                                null,
+                                "Você não furtividade suficiente, o inimigo te vê e te bate, você perdeu sua vez para isso ?" ,
+                                null,
+                                JOptionPane.INFORMATION_MESSAGE);
+                        }                
                 break;
+                
             
         }
     }
-         if(vidaInimigo > 0)
+         if(vidaMob > 0 && fugir == false)
         {
-            escolhaInimigo = rnd.nextInt(1);
+            escolhaInimigo = rnd.nextInt(1)+ 1 ;
             switch(escolhaInimigo){
-                case 0:
-                    //ataque normal            
-                    vidaJogador -= rnd.nextInt(forcaZumbi);
+                case 1:
+                //ataque normal 
+                int dano = rnd.nextInt(danoMob)+1;
+                JOptionPane.showMessageDialog(
+                    null,
+                    "O inimigo deu: " + dano + " de dano" ,
+                    null,
+                    JOptionPane.WARNING_MESSAGE);
+                               
+                    vidaJogador -= dano;
+                    
                 break;
-                 case 1:
+                 case 2:
                 //ataque especial
-                    vidaJogador -= rnd.nextInt(forcaZumbi)*10;
+                int danoEspecial = rnd.nextInt(danoMob)+1;
+                JOptionPane.showMessageDialog(
+                    null,
+                    "O inimigo deu: " + danoEspecial + " de dano" ,
+                    null,
+                    JOptionPane.WARNING_MESSAGE);
+          
+                   vidaJogador -= danoEspecial;
+                    
                 break;
            
     }
     
 
+         }
+
+
     }
-    return vidaJogador
-
-
+    if (vidaJogador <= 0)
+    {
+        JOptionPane.showMessageDialog(
+                    null,
+                    "Você morreu!",
+                    null,
+                    JOptionPane.WARNING_MESSAGE);
+    }
+    return vidaJogador;
 
 }
-
 }
