@@ -26,6 +26,7 @@ public int batalha(int vidaJogador, int especialUsos,int forcaJogador, int statu
     int escolhaInimigo;
     int escolhaOqFazerJogador;
     int danoJogador;
+    
     //multiplicador de dano, dependendo da classe
     if(forcaJogador > 6){
          danoJogador = forcaJogador * 3;
