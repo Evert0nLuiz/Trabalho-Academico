@@ -47,7 +47,7 @@ public class MecanicasDoJogo
     
     public int criaZumbi()
     {
-        vidaZumbi = 60;
+        vidaZumbi = 100;
        return vidaZumbi;     
 
 

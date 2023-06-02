@@ -48,8 +48,9 @@ public class Testes extends MecanicasDoJogo {
 
         cientista.mostrarMochila();
         
-        battle.batalha(vida, especialUsos, forca, vidaInimigo, forcaMob);
+        battle.batalha(vida, especialUsos, forca, furtividade, vidaInimigo, forcaMob);
        
+        
       
     }
 }
