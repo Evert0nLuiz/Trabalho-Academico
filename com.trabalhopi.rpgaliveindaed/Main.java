@@ -153,7 +153,7 @@ public class Main extends MecanicasDoJogo {
                 JOptionPane.showMessageDialog(null, "Quando você consegue se levantar você acha um zumbi na sua frente, pelo visto sua única opção é enfrenta-lo", titulo, JOptionPane.PLAIN_MESSAGE);
                 // realizar todo o código da batalha dentro desse IF
 
-                // se ganhar defina vitória 1 e derrota 0
+                // se ganhar defina vitória 1 e derha()rota 0
                 int batalha = 0;
                 if (batalha == 0) {
                     JOptionPane.showMessageDialog(null, "Você falha miseravelmente em matar o primeiro boss do jogo, parabéns\n\nVocê morreu", titulo, JOptionPane.ERROR_MESSAGE);
@@ -303,6 +303,9 @@ public class Main extends MecanicasDoJogo {
 
     
 
+    public static Batalhas começarBatalha(){
+
+    }
     public static MecanicasDoJogo definirStatsClasse(int escolha) {
         MecanicasDoJogo mecanicas = new MecanicasDoJogo();
         if (escolha == 0) {
