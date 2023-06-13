@@ -20,6 +20,8 @@ public class MecanicasDoJogo
     int especialUsos = 0;
     int vidaZumbi;
     int forcaZumbi;
+    int vidaBoss;
+    int forcaBoss;
 
     //escolha de classes
     public void setClasseSoldado()
@@ -45,18 +47,48 @@ public class MecanicasDoJogo
     }
 
     
-    public int criaZumbi()
+    public void criaZumbi()
     {
         vidaZumbi = 100;
-       return vidaZumbi;     
-
+        forcaZumbi = 10;
 
     }
     public int getForcaZumbi()
     {
-        forcaZumbi = 10;
         return forcaZumbi;
     }
+    public int getVidaZumbi()
+    {
+        return vidaZumbi;
+    }
+    public void setForcaZumbi(int forca){
+        this.forcaZumbi = forca;
+    }
+    public void setVidaZumbi(int vida){
+        this.vidaZumbi = vida;
+    }
+     
+    public void criaBoss()
+    {
+        vidaBoss = 200;
+        forcaBoss = 10;
+
+    }
+    public int getForcaBoss()
+    {
+        return forcaBoss;
+    }
+    public int getVidaBoss()
+    {
+        return vidaBoss;
+    }
+    public void setForcaBoss(int forca){
+        this.forcaBoss = forca;
+    }
+    public void setVidaBoss(int vida){
+        this.vidaBoss = vida;
+    }
+
 
 
     //pegar os Stats
