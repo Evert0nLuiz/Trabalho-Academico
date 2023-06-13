@@ -28,8 +28,8 @@ public class Testes extends MecanicasDoJogo {
         int forca;
         int especialUsos;
         int vidaInimigo;
-        mecJogo.criaZumbi();
-        int forcaMob = mecJogo.getForcaZumbi();
+        mecJogo.criarInimigo(100, 10);
+        int forcaMob = mecJogo.getForcaInimigo();
         mecJogo.setClasseSoldado();
 
         vida = mecJogo.getVida();
@@ -37,7 +37,7 @@ public class Testes extends MecanicasDoJogo {
         inteligencia = mecJogo.getInteligencia();
         furtividade = mecJogo.getFurtividade();
         especialUsos = mecJogo.getEspecial();
-        vidaInimigo = mecJogo.getVidaZumbi();
+        vidaInimigo = mecJogo.getVidaInimigo();
 
         System.out.println(vida);
         System.out.println(forca);
@@ -57,8 +57,11 @@ public class Testes extends MecanicasDoJogo {
 
         mecJogo.mostrarMochila();
         
-        battle.batalha(vida, especialUsos, forca, furtividade, vidaInimigo, forcaMob);
-       
+        boolean ganhou = battle.batalha(mecJogo);
+
+        System.out.println("Sua vida atual: " + mecJogo.getVida());
+
+        System.out.println("ganhou? " + ganhou);
         
       
     }

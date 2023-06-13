@@ -23,29 +23,31 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
         return escolhaJogador;
     }
 
-    public int batalha(int vidaJogador, int especialUsos, int forcaJogador, int statusCoringa, int vidaInimigo, int forcaMob) {
+    public boolean batalha(MecanicasDoJogo jogo) {
         Random rnd = new Random();
-        int vidaMob = vidaInimigo;
         int escolhaInimigo;
         int escolhaOqFazerJogador;
         int danoJogador;
+        especialUsos = jogo.getEspecial();
 
         //multiplicador de dano, dependendo da classe
-        if (forcaJogador > 6) {
-            danoJogador = forcaJogador * 3;
+        if (jogo.getForca() > 6) {
+            danoJogador = jogo.getForca() * 3;
+        } else if (jogo.getForca() >= 4 && jogo.getForca() <= 6 ) {
+            danoJogador = jogo.getForca() * 5;
         } else {
-            danoJogador = forcaJogador * 7;
+            danoJogador = jogo.getForca() * 7;
         }
 
-        int danoMob = forcaMob * 2;
+        int danoMob = jogo.getForcaInimigo() * 2;
         int mediaDeTeste = 8;
         boolean fugir = false;
 
-        while (vidaJogador > 0 && vidaMob > 0 && fugir == false) {
-            System.out.println(forcaZumbi);
-            escolhaOqFazerJogador = imprimeHP(vidaJogador, especialUsos, vidaMob);
+        while (jogo.getVida() > 0 && jogo.getVidaInimigo() > 0 && fugir == false) {
+            System.out.println(jogo.getVidaInimigo());
+            escolhaOqFazerJogador = imprimeHP(jogo.getVida(), especialUsos, jogo.getVidaInimigo());
 
-            if (vidaJogador > 0) {
+            if (jogo.getVida() > 0) {
                 if (escolhaOqFazerJogador == -1) {
                     break;
                 }
@@ -60,7 +62,7 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
                                 "Voce deu: " + dano + " de dano",
                                 null,
                                 JOptionPane.INFORMATION_MESSAGE);
-                        vidaMob -= dano;
+                        jogo.setVidaInimigo( jogo.getVidaInimigo() - dano);
 
                         break;
                     case 1:
@@ -81,12 +83,12 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
                                     "Voce deu: " + danoEspecial + " de dano",
                                     null,
                                     JOptionPane.INFORMATION_MESSAGE);
-                            vidaMob -= danoEspecial;
+                            jogo.setVidaInimigo(jogo.getVidaInimigo() - danoEspecial);
                             especialUsos -= 1;
                             break;
                         }
                     case 2:
-                        if (statusCoringa >= mediaDeTeste) {
+                        if (jogo.getFurtividade() >= mediaDeTeste) {
                             JOptionPane.showMessageDialog(
                                     null,
                                     "Você tem furtividade suficiente e consegue fugir",
@@ -106,31 +108,32 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
 
                 }
             }
-            if (vidaMob > 0 && fugir == false) {
+            if (jogo.getVidaInimigo() > 0 && fugir == false) {
                 escolhaInimigo = rnd.nextInt(1) + 1;
+
                 switch (escolhaInimigo) {
                     case 1:
                         //ataque normal
-                        int dano = rnd.nextInt(danoMob) + 1;
+                        int dano = rnd.nextInt(danoMob);
                         JOptionPane.showMessageDialog(
                                 null,
                                 "O inimigo deu: " + dano + " de dano",
                                 null,
                                 JOptionPane.WARNING_MESSAGE);
 
-                        vidaJogador -= dano;
+                        jogo.setVida(jogo.getVida() - dano);
 
                         break;
                     case 2:
                         //ataque especial
-                        int danoEspecial = rnd.nextInt(danoMob) + 1;
+                        int danoEspecial = rnd.nextInt(danoMob) + 2;
                         JOptionPane.showMessageDialog(
                                 null,
                                 "O inimigo deu: " + danoEspecial + " de dano",
                                 null,
                                 JOptionPane.WARNING_MESSAGE);
 
-                        vidaJogador -= danoEspecial;
+                        jogo.setVida(jogo.getVida() - danoEspecial);
 
                         break;
 
@@ -141,14 +144,10 @@ public class Batalhas extends com.trabalhopi.rpgaliveindead.MecanicasDoJogo {
 
 
         }
-        if (vidaJogador <= 0) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Você morreu!",
-                    null,
-                    JOptionPane.WARNING_MESSAGE);
+        if (jogo.getVida() <= 0) {
+            return false;
         }
-        return vidaJogador;
 
+        return true;
     }
 }

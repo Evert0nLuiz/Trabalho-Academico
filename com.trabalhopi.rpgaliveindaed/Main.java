@@ -52,7 +52,6 @@ public class Main extends MecanicasDoJogo{
         //cientista = 2
 
         MecanicasDoJogo status = null;
-        int statusCoringa = 0;
         int classe = 4;
         while (classe == 4) { //inicio escolha de classes
 
@@ -77,7 +76,6 @@ public class Main extends MecanicasDoJogo{
                     if (respostaClasse == 0) {
                         classe = 0;
                         classeNome = "SOLDADO";
-                        statusCoringa = status.getForca();
                     }
                     break;
 
@@ -88,7 +86,6 @@ public class Main extends MecanicasDoJogo{
                     if (respostaClasse == 0) {
                         classe = 1;
                         classeNome = "PRISIONEIRO";
-                        statusCoringa = status.getFurtividade();
                     }
                     break;
 
@@ -99,7 +96,6 @@ public class Main extends MecanicasDoJogo{
                     if (respostaClasse == 0) {
                         classe = 2;
                         classeNome = "CIENTISTA";
-                        statusCoringa = status.getInteligencia();
                     }
                     break;
             }
@@ -153,35 +149,54 @@ public class Main extends MecanicasDoJogo{
                 JOptionPane.showMessageDialog(null, "Você tenta se esconder porém pela falta de furtividade acaba caindo denovo", titulo, JOptionPane.PLAIN_MESSAGE);
                 pularBatalha = 0;
             }
+        }
+        if (pularBatalha == 0) {
+            JOptionPane.showMessageDialog(null,
+                    "Olhando ao redor você acha um zumbi na sua frente, pelo visto sua única opção é enfrenta-lo",
+                    titulo,
+                    JOptionPane.PLAIN_MESSAGE);
+            // realizar todo o código da batalha dentro desse IF
+            status.criarInimigo(100, 10);
+            Batalhas batalhas = new Batalhas();
+            boolean batalha = batalhas.batalha(status);
 
-            if (pularBatalha == 0) {
-                JOptionPane.showMessageDialog(null, "Quando você consegue se levantar você acha um zumbi na sua frente, pelo visto sua única opção é enfrenta-lo", titulo, JOptionPane.PLAIN_MESSAGE);
-                // realizar todo o código da batalha dentro desse IF
-                status.criaZumbi();
-                Batalhas batalhas = new Batalhas();
-                batalhas.batalha(status.getVida(), status.getEspecial(), status.getForca(), statusCoringa, status.getVidaZumbi(), status.getForcaZumbi());
+            // se ganhar define batalha como true
 
-
-
-                // se ganhar defina vitória 1 e derrota 0
-                int batalha = 0;
-                if (batalha == 0) {
-                    JOptionPane.showMessageDialog(null, "Você falha miseravelmente em matar o primeiro boss do jogo, parabéns\n\nVocê morreu", titulo, JOptionPane.ERROR_MESSAGE);
-                    System.exit(0);
-                }
+            if (!batalha) { // se batalha for diferente de true, ou seja, se perder
+                JOptionPane.showMessageDialog(null, "Você falha miseravelmente em matar o primeiro boss do jogo, parabéns\n\nVocê morreu", titulo, JOptionPane.ERROR_MESSAGE);
+                System.exit(0);
             }
         }
 
 
+
         //fim batalha 1
 
-        String armaClasse[] = {"Arma", "Taco de Baisebol", "Arma de Choque"};
+        String armaClasse[] = {"Pistola", "Taco de Baisebol", "Arma de Choque"};
+        int atributo[] = {4, 3, 6};
 
         JOptionPane.showMessageDialog(
                 null,
-                "Parabéns, você venceu sua primeira batalha, ao derrota-lo você acha um(a) " + armaClasse[classe] + " no chão.",
+                (pularBatalha == 1 ? "Após evitar o monstro e sair da sala " : "Parabéns, você venceu sua primeira batalha, ao sair da sala ")
+                        + " você acha um(a) "  + armaClasse[classe] + " no chão. Ao equipar adiciona +" + atributo[classe] + " à sua força.",
                 titulo,
                 JOptionPane.INFORMATION_MESSAGE);
+        status.setForca(status.getForca() + atributo[classe]);
+
+
+
+        JOptionPane.showMessageDialog(
+                null,
+                "Força atual: " + status.getForca());
+
+        JOptionPane.showMessageDialog(
+                null,
+                "Você encontra um kit médico e um escudo no chão, você usa o kit para restaurar sua vida \nAo quipar o escudo adiciona +50 de vida!");
+        status.setVida(100 + 50     );
+
+        JOptionPane.showMessageDialog(
+                null,
+                "Vida atual: " + status.getVida());
 
         String opcoesFios[] = {"Vermelho", "Azul", "Chutar a porta"};
         int pularFios = 0;
@@ -218,7 +233,7 @@ public class Main extends MecanicasDoJogo{
                     break;
 
                 case 2:
-                    if (status.forca >= 8) {
+                    if (status.forca > 9) {
                         JOptionPane.showMessageDialog(null, "Você é forte o suficiente e consegue derrubar a porta com um chute\n\nO de hoje ta pago em!!", titulo, JOptionPane.INFORMATION_MESSAGE);
                         pularFios = 1;
                     } else {
@@ -284,7 +299,7 @@ public class Main extends MecanicasDoJogo{
 
         }
 
-        JOptionPane.showMessageDialog(null, "Basta agora escolher o caminho para a glória e sonhada liberdade!", titulo, JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Basta agora escolher o caminho para a gloriosa e sonhada liberdade!", titulo, JOptionPane.PLAIN_MESSAGE);
 
         String opcoesSaida[] = {"Ponte", "Cais"};
 
@@ -298,11 +313,11 @@ public class Main extends MecanicasDoJogo{
         JOptionPane.showMessageDialog(null, "Ao seguir pelo caminho do cais, você se depara com um barco, incrivelmente inteiro, ainda mais com o ataque\nMas quando a esmola é muito grande, o santo desconfia...\nVocê se depara com um guarda fazendo a vigia do barco, mas seu foco é sair da ilha, então vai a batalha", titulo, JOptionPane.PLAIN_MESSAGE);
 
         // inicio batalha
+        status.criarInimigo(150, 15);
+        Batalhas batalhas = new Batalhas();
+        boolean batalha = batalhas.batalha(status);
 
-        // se ganhar defina vitoriaBatalha = 1
-        int vitoriaBatalha = 1;
-
-        if (vitoriaBatalha == 0) {
+        if (!batalha) {
             JOptionPane.showMessageDialog(null, "Você chegou tão perto, infelizmente, o guarda era mais forte e conseguiu te derrotar\nVocê Morreu!", titulo, JOptionPane.WARNING_MESSAGE);
             System.exit(1);
         }
