@@ -45,17 +45,25 @@ public class MecanicasDoJogo
     }
 
     
-    public int criaZumbi()
+    public void criaZumbi()
     {
         vidaZumbi = 100;
-       return vidaZumbi;     
-
+        forcaZumbi = 10;
 
     }
     public int getForcaZumbi()
     {
-        forcaZumbi = 10;
         return forcaZumbi;
+    }
+    public int getVidaZumbi()
+    {
+        return vidaZumbi;
+    }
+    public void setForcaZumbi(int forca){
+        this.forcaZumbi = forca;
+    }
+    public void setVidaZumbi(int vida){
+        this.vidaZumbi = vida;
     }
 
 
