@@ -12,7 +12,7 @@
 ## Créditos
 Everton Luiz da Cruz Sousa<br>
 Gabriel Freitas de Souza<br>
-Roger<br>
+Roger Pereira de Souza<br>
 Nickolas
 
 ## Motivação
