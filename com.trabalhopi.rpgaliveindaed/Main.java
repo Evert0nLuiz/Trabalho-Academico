@@ -218,7 +218,7 @@ public class Main extends MecanicasDoJogo{
                 case 0:
                     JOptionPane.showMessageDialog(
                             null,
-                            "Você cortou o fio vermelho, com isso uma luz magicamente se acende e você consegue abrir a porta a sua frete",
+                            "Você cortou o fio vermelho, com isso uma luz magicamente se acende e você consegue abrir a porta a sua frente",
                             titulo,
                             JOptionPane.INFORMATION_MESSAGE);
                     pularFios = 1;
