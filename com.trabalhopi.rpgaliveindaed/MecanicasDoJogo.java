@@ -18,8 +18,8 @@ public class MecanicasDoJogo
     int maximoDeEspacosNaMochila = 3;
     String mochila [] = new String [maximoDeEspacosNaMochila];
     int especialUsos = 0;
-    int vidaZumbi;
-    int forcaZumbi;
+    int forcaInimigo = 0;
+    int vidaInimigo = 0;
 
     //escolha de classes
     public void setClasseSoldado()
@@ -40,22 +40,30 @@ public class MecanicasDoJogo
     {
         vida = 100;
         inteligencia = 5;
-        forca = 3;
+        forca = 6;
         furtividade = 9;
     }
 
     
-    public int criaZumbi()
+    public void criarInimigo(int vida, int forca)
     {
-        vidaZumbi = 100;
-       return vidaZumbi;     
-
+        this.vidaInimigo = vida;
+        this.forcaInimigo = forca;
 
     }
-    public int getForcaZumbi()
+    public int getForcaInimigo()
     {
-        forcaZumbi = 10;
-        return forcaZumbi;
+        return forcaInimigo;
+    }
+    public int getVidaInimigo()
+    {
+        return vidaInimigo;
+    }
+    public void setForcaInimigo(int forca){
+        this.forcaInimigo = forca;
+    }
+    public void setVidaInimigo(int vida){
+        this.vidaInimigo = vida;
     }
 
 
@@ -72,6 +80,11 @@ public class MecanicasDoJogo
     public int getForca(){
         return forca;     
     }
+    //define Stats
+    public void setVida(int vida) { this.vida = vida; }
+    public void setFurtividade(int furtividade) { this.furtividade = furtividade; }
+    public void setForca(int forca) { this.forca = forca; }
+    public void setInteligencia(int inteligencia) { this.inteligencia = inteligencia; }
 
     public int getEspecial()
     {
@@ -79,9 +92,6 @@ public class MecanicasDoJogo
       return especialUsos;
     }
    
-    
-
-
 
 
    public String adicionarItensNaMochila(String item)
